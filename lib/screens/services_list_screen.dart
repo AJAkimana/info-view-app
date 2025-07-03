@@ -20,7 +20,7 @@ class _ServicesListScreenState extends State<ServicesListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Available Services'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),

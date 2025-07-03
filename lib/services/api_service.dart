@@ -11,7 +11,6 @@ class ApiService {
   static Future<List<Service>> getServices() async {
     try {
       final response = await _dio.get('/info-services');
-      print ('Response: ${response.data}');
       if (response.statusCode == 200) {
         final List<dynamic> data = response.data['data'];
         return data.map((serviceJson) => Service.fromJson(serviceJson)).toList();

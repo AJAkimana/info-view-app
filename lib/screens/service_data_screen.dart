@@ -144,7 +144,7 @@ class _ServiceDataScreenState extends State<ServiceDataScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.service.name),
-        backgroundColor: const Color(0xFF3949AB), // Bluish (between blue and purple)
+        backgroundColor: Theme.of(context).colorScheme.primary, // Bluish (between blue and purple)
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
@@ -237,7 +237,7 @@ class _ServiceDataScreenState extends State<ServiceDataScreen> {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
               decoration: BoxDecoration(
-                color: const Color(0xFF5C6BC0), // Slightly lighter bluish
+                color: Theme.of(context).colorScheme.inversePrimary,
                 borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(24),
                   bottomRight: Radius.circular(24),
