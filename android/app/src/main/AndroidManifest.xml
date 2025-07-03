@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="info_viewer"
+        android:label="An Info Viewer"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
