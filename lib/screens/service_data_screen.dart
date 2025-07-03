@@ -43,7 +43,8 @@ class _ServiceDataScreenState extends State<ServiceDataScreen> {
   }
 
   Widget _buildDataWidget(String key, dynamic value) {
-    if (value == null) return const SizedBox.shrink();
+    var hiddenKeys = ['id', 'hiddenParams', 'params', 'basePath', 'isActive'];
+    if (value == null || hiddenKeys.contains(key)) return const SizedBox.shrink();
 
     if (value is Map<String, dynamic>) {
       return Card(

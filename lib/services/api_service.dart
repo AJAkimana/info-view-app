@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
+import 'package:info_viewer/utils/device_info_util.dart';
 import '../models/service.dart';
 
 class ApiService {
-  static const String baseUrl = 'http://192.168.1.130:5400/api/v1'; // Replace with actual proxy server URL
+  static const String baseUrl = 'https://dev.akimanaja.com/api/v1'; // Replace with actual proxy server URL
   static final Dio _dio = Dio(BaseOptions(baseUrl: baseUrl, headers: {'Content-Type': 'application/json'}));
 
   // Get list of available services
@@ -29,9 +30,11 @@ class ApiService {
     Map<String, dynamic> formData,
   ) async {
     try {
+      final reqInfo = await DeviceInfoUtil.getReqInfo();
       final response = await _dio.post('/info-services/info', data: {
         'params': formData,
-        'serviceId': serviceId
+        'serviceId': serviceId,
+        'reqInfo': reqInfo,
       });
       if (response.statusCode == 200) {
         return response.data['data'];
