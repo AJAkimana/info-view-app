@@ -18,7 +18,6 @@ class ApiService {
         throw Exception('Failed to load services: \\${response.statusCode}');
       }
     } catch (e) {
-      print(e);
       throw Exception('Network error: $e');
     }
   }
@@ -30,13 +29,18 @@ class ApiService {
   ) async {
     try {
       final reqInfo = await DeviceInfoUtil.getReqInfo();
-      final response = await _dio.post('/info-services/info', data: {
-        'params': formData,
+      final dataBody = {
         'serviceId': serviceId,
+        'params': formData,
         'reqInfo': reqInfo,
-      });
+      };
+      final response = await _dio.post('/info-services/info', data:dataBody );
       if (response.statusCode == 200) {
-        return response.data['data'];
+        if(response.data['data'] == null) {
+          throw Exception('No data returned from server');
+        }
+        final Map<String, dynamic> data = response.data['data'];
+        return data;
       } else {
         throw Exception('Failed to submit data: \\${response.statusCode}');
       }

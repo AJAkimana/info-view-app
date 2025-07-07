@@ -74,7 +74,7 @@ class _ServicesListScreenState extends State<ServicesListScreen> {
                               TextButton.icon(
                                 onPressed: () => _showServiceDetails(service),
                                 icon: const Icon(Icons.info_outline),
-                                label: const Text('Details'),
+                                label: const Text('Use it'),
                               ),
                               const SizedBox(width: 8),
                               ElevatedButton.icon(
@@ -87,7 +87,7 @@ class _ServicesListScreenState extends State<ServicesListScreen> {
                                   );
                                 },
                                 icon: const Icon(Icons.visibility),
-                                label: const Text('View Data'),
+                                label: const Text('View more'),
                               ),
                             ],
                           ),
