@@ -43,8 +43,18 @@ class _ServiceDataScreenState extends State<ServiceDataScreen> {
   }
 
   Widget _buildDataWidget(String key, dynamic value) {
-    var hiddenKeys = ['id', 'hiddenParams', 'params', 'basePath', 'isActive'];
-    if (value == null || hiddenKeys.contains(key)) return const SizedBox.shrink();
+    var hiddenKeys = [
+      'id',
+      'hiddenParams',
+      'params',
+      'basePath',
+      'isActive',
+      'createdAt',
+      'updatedAt'
+    ];
+    if (value == null || hiddenKeys.contains(key)) {
+      return const SizedBox.shrink();
+    }
 
     if (value is Map<String, dynamic>) {
       return Card(
@@ -144,7 +154,9 @@ class _ServiceDataScreenState extends State<ServiceDataScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.service.name),
-        backgroundColor: Theme.of(context).colorScheme.primary, // Bluish (between blue and purple)
+        backgroundColor: Theme.of(context)
+            .colorScheme
+            .primary, // Bluish (between blue and purple)
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
@@ -244,7 +256,7 @@ class _ServiceDataScreenState extends State<ServiceDataScreen> {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
+                    color: Colors.black.withValues(alpha: 0.05),
                     blurRadius: 8,
                     offset: const Offset(0, 4),
                   ),
@@ -280,8 +292,8 @@ class _ServiceDataScreenState extends State<ServiceDataScreen> {
                   Text(
                     'Data',
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
                   const SizedBox(height: 8),
                   ..._data!.entries.map((entry) {
