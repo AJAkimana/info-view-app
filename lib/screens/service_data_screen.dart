@@ -298,7 +298,7 @@ class _ServiceDataScreenState extends State<ServiceDataScreen> {
                   const SizedBox(height: 8),
                   ..._data!.entries.map((entry) {
                     return _buildDataWidget(entry.key, entry.value);
-                  }).toList(),
+                  }),
                 ],
               ),
             ),

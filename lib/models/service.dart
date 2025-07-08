@@ -15,16 +15,16 @@ class Service extends BaseModel {
   final Param params;
 
   Service({
-    required String id,
-    DateTime? createdAt,
-    DateTime? updatedAt,
+    required super.id,
+    super.createdAt,
+    super.updatedAt,
     required this.name,
     required this.description,
     required this.serviceType,
     required this.isActive,
     required this.basePath,
     required this.params,
-  }) : super(id: id, createdAt: createdAt, updatedAt: updatedAt);
+  });
 
   factory Service.fromJson(Map<String, dynamic> json) => _$ServiceFromJson(json);
 
